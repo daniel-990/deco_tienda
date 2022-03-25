@@ -18,14 +18,14 @@
                         $handle = fopen($filename, "r");
 
                         while(($data = fgetcsv($handle, 1000, ",","'")) !== FALSE ){
-                                // $q = "INSERT INTO tbl_productos (
-                                //         id, 
-                                //         nombre, 
-                                //         correo) VALUES (
-                                //         '$data[0]',
-                                //         '$data[1]',
-                                //         '$data[2]'
-                                // )";
+                                $q = "INSERT INTO tbl_productos (
+                                        id, 
+                                        nombre, 
+                                        correo) VALUES (
+                                        '$data[0]',
+                                        '$data[1]',
+                                        '$data[2]'
+                                )";
                         // $mysqli->query($q);
                                 echo "<pre>";
                                         print_r($data);
