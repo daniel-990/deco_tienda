@@ -1,21 +1,18 @@
     <?php 
         include "./partials/header.php"; 
+        include "./vendor/autoload.php";
     ?>
 
-
-    <section class="container">
-        Carga de la base de datos:
-        <br>
-        <form enctype="multipart/form-data" method="POST" action="./backapp/cargadedatos.php">
-            <br>
-            CSV File:
-            <br>
-            <input type="file" name="archivo" id="archivo">
-            <br>
-            <br>
-            <button type="submit" class="btn btn-primary text-left">Enviar <i class="far fa-share-square"></i></button>
-        </form>
-
+    <section id="render-notificaciones">
+        <div id="render" class="container">
+            <!-- render notificaciones -->
+            <h5 class="text-center">
+                <br>
+                Notificaciones de pedido, de la tienda
+            </h5>
+            <p class="text-center">
+                <img id="carga" src="./img/load.gif" alt="">
+            </p>
+        </div>
     </section>
-
     <?php include "./partials/footer.php"; ?>
