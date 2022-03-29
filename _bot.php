@@ -14,18 +14,18 @@ $numeroOrden = $_POST['numeroOrden'];
 $total = $_POST['total'];
 $direccion = $_POST['direccion'];
 $ciudadOrden = $_POST['ciudadOrden'];
+//productos
+$multimedia = $_POST['_multimedia'];
 
 $mensaje = "
     ID: ".$id." 
     nombre: ".$nombre." 
     apellido: ".$apellido." 
     telefono: ".$telefono." 
-    correo: ".$correo." 
+    correo: \n".$correo." 
     telefono: ".$telefono." 
-    correo: ".$correo." 
-    fecha: ".$fecha. " 
     numero de la orden: ".$numeroOrden." 
-    total: ".$total." 
+    total a pagar: ".$total." 
     direccion: ".$direccion." 
     ciudad: ".$ciudadOrden;
 
@@ -38,18 +38,24 @@ $handler = new HttpClientRequestHandler($loop);
 $tgLog = new TgLog(APIBOT, $handler);
 
 if(isset($_POST)){
-
-
-
+    //para acceder dentro del ciclo a sus datos
+    foreach ($multimedia as &$valor) {
+        $datos.=$valor."\n";
+    }
+    $datos = substr($datos,0,-1);//para eliminar la ultima coma (de tu post anterior);
+    // foreach($multimedia as $valor){
+    //     $datos.=$valor['nombre']."\n".$valor['sub']."$\n <a>".$valor['imagen']."</a>\n";
+    // }
+    // $datos = substr($datos,0,-1);//para eliminar la ultima coma (de tu post anterior)
+    //echo "<b>Nuevo pedido:</b> ".$mensaje." \n <b>Items comprados:</b> \n".$datos;
     $sendMessage = new SendMessage();
     $sendMessage->chat_id = IDCHAT;
-    $sendMessage->text = "Nuevo pedido: ".$mensaje;
-    
+    $sendMessage->text = "<b>Nuevo pedido:</b> ".$mensaje." \n <b>Items comprados:</b> \n".$datos;
+    $sendMessage->parse_mode = "HTML";
     $tgLog->performApiRequest($sendMessage);
     $loop->run();
     echo "datos enviados";
     exit;
-
 }else{
     echo "no se enviaron los datos";
 }

@@ -8,6 +8,7 @@
     //datos bot
     //https://api.telegram.org/bot5255586585:AAESeB28OXDl2L4GwhsaqHQkV-tY73KX9YA/getUpdates
     define('APIBOT','5255586585:AAESeB28OXDl2L4GwhsaqHQkV-tY73KX9YA');
-    define('IDCHAT',177279577);
+    //define('IDCHAT',177279577); //-> daniel
+    define('IDCHAT',-768882366);
 
 ?>
