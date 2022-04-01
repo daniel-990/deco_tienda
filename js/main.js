@@ -25,13 +25,13 @@ const init = () => {
             },
             success: function( data, txtStatus, xhr ){
                 $("#carga").hide();
-                //actualizacion de ordenes
                 
+                //actualizacion de ordenes
                 data.map(items => {
-
+                    
                     if(items.id > contador && items.status == "on-hold"){
                         const img = items.line_items;
-                        //img 
+                        //datos de la imagen
                         for (let i = 0; i < img.length; i++) {
 
                             const element = img[i];
@@ -52,9 +52,6 @@ const init = () => {
                             totalApagar : items.total, //total de la orden
                             direccion : items.billing.address_1,
                             ciudad : items.billing.city,
-                            // _nombrePro : nombreProducto,
-                            // _imgPro : imagenProducto,
-                            // _subTotal : subTotalProducto
                             _multimedia : multimedia
                         } 
                         //console.log(parametros._multimedia);
@@ -67,24 +64,12 @@ const init = () => {
                             multimedia = [];
                             console.log(contador);
                         }else{
-                            console.log("no ingreso nada");
-                            console.log(contador);
+                            // console.log("no ingreso nada");
+                            // console.log(contador);
                         }
 
-                        // const parametros = {
-                        //     id : items.id,
-                        //     nombre : items.billing.first_name,
-                        //     apellido : items.billing.last_name,
-                        //     telefono : items.billing.phone,
-                        //     correo : items.billing.email,
-                        //     fecha : items.date_created,
-                        //     numeroOrden : items.number, //numero de la orden
-                        //     totalApagar : items.total, //total de la orden
-                        //     direccion : items.billing.address_1,
-                        //     ciudad : items.billing.city
-                        // }
                     }else{
-                        console.log("sin pedidos nuevos");
+                        // console.log("sin pedidos nuevos");
                     }
                 });
                 //console.log("Estado: " +xhr.status );
