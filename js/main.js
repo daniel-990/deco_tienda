@@ -3,8 +3,9 @@ const init = () => {
     //datos url
     const url_ = "http://localhost:8888/deco_tienda/_notificacion.php";
     const urlBot = "http://localhost:8888/deco_tienda/_bot.php";
-    let noticacion;
-    let contador = 8128;
+    let notificacion = false;
+    //anterior = 8146;
+    let contador = 8141;
 
     //productos;
     let nombreProducto;
@@ -32,6 +33,7 @@ const init = () => {
                     if(items.id > contador && items.status == "on-hold"){
                         const img = items.line_items;
                         //datos de la imagen
+                        
                         for (let i = 0; i < img.length; i++) {
 
                             const element = img[i];
@@ -55,16 +57,17 @@ const init = () => {
                             _multimedia : multimedia
                         } 
                         //console.log(parametros._multimedia);
-
-                        noticacion = confirm("Nuevo Pedido, por favor aceptar.");
-                        if(noticacion == true){
+                        notificacion = true;
+                        //notificacion = confirm("Nuevo Pedido, por favor aceptar.");
+                        if(notificacion == true){
                             envioDatosBot(parametros);
                             console.log("nuevo pedido!");
                             contador = items.id;
                             multimedia = [];
                             console.log(contador);
+                            notificacion = false;
                         }else{
-                            // console.log("no ingreso nada");
+                            //console.log("no ingreso nada");
                             // console.log(contador);
                         }
 

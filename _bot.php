@@ -16,6 +16,7 @@ $direccion = $_POST['direccion'];
 $ciudadOrden = $_POST['ciudadOrden'];
 //productos
 $multimedia = $_POST['_multimedia'];
+$datos = "";
 
 $mensaje = "
     ID: ".$id." 

@@ -11,7 +11,12 @@
                 Notificaciones de pedido, de la tienda
             </h5>
             <p class="text-center">
-                <img id="carga" src="./img/load.gif" alt="">
+                <div id="carga" clasS="text-center">
+                    <img src="./img/load.gif" alt="">
+                    <p>
+                        Buscando nuevos pedidos
+                    </p>
+                </div>
             </p>
         </div>
     </section>

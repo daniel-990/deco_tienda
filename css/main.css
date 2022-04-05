@@ -1,3 +1,7 @@
-#carga{
+body{
+    background-color: #050a19;
+    color: white;
+}
+#carga > img{
     width: 100%;
 }
