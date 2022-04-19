@@ -1,8 +1,8 @@
 const init = () => {
 
     //datos url
-    const url_ = "http://localhost:8888/deco_tienda/_notificacion.php";
-    const urlBot = "http://localhost:8888/deco_tienda/_bot.php";
+    const url_ = "http://localhost:8080/deco_tienda/_notificacion.php";
+    const urlBot = "http://localhost:8080/deco_tienda/_bot.php";
     let notificacion = false;
     //anterior = 8146;
     let contador = 8141;
