@@ -1,12 +1,14 @@
 const init = () => {
 
     //datos url
+    let urlSitioTienda = "https://decohouse.com.co/decohouse-tienda/";
+
+    //datos url conexion
     const url_ = "http://localhost:8080/deco_tienda/_notificacion.php";
     const urlBot = "http://localhost:8080/deco_tienda/_bot.php";
     let notificacion = false;
     //anterior = 8146;
-    let contador = 8141;
-    let urlSitioTienda = "https://decohouse.com.co/decohouse-tienda/";
+    let contador = 12623;
     //productos;
     let nombreProducto;
     let imagenProducto;
@@ -34,7 +36,7 @@ const init = () => {
                      * order status:
                      * pending
                      * processing
-                     * on-hold
+                     * on-hold -> epayco-on-hold
                      * completed
                      * cancelled
                      * refunded
@@ -42,8 +44,9 @@ const init = () => {
                      * trash
                      * pending
                      */
-
-                    if(items.id > contador && items.status == "on-hold"){
+                    // console.log(items.id);
+                    // console.log(items.status);
+                    if(items.id > contador && items.status == "epayco-on-hold"){
                         const img = items.line_items;
                         //datos de la imagen
                         
@@ -77,6 +80,7 @@ const init = () => {
                             console.log("nuevo pedido!");
                             contador = items.id;
                             multimedia = [];
+                            //contador del pedido
                             console.log(contador);
                             notificacion = false;
                         }else{
