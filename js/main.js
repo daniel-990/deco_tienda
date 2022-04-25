@@ -6,7 +6,7 @@ const init = () => {
     let notificacion = false;
     //anterior = 8146;
     let contador = 8141;
-
+    let urlSitioTienda = "https://decohouse.com.co/decohouse-tienda/";
     //productos;
     let nombreProducto;
     let imagenProducto;
@@ -29,7 +29,20 @@ const init = () => {
                 
                 //actualizacion de ordenes
                 data.map(items => {
-                    
+
+                    /**
+                     * order status:
+                     * pending
+                     * processing
+                     * on-hold
+                     * completed
+                     * cancelled
+                     * refunded
+                     * failed
+                     * trash
+                     * pending
+                     */
+
                     if(items.id > contador && items.status == "on-hold"){
                         const img = items.line_items;
                         //datos de la imagen
@@ -39,7 +52,7 @@ const init = () => {
                             const element = img[i];
                             nombreProducto = element.name;
                             subTotalProducto = element.subtotal;
-                            imagenProducto = "https://decohouse.com.co/producto/?p="+element.product_id;
+                            imagenProducto = urlSitioTienda+"producto/?p="+element.product_id;
 
                             multimedia.push(nombreProducto,subTotalProducto,imagenProducto);
                         }
