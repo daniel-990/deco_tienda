@@ -8,7 +8,7 @@ const init = () => {
     const urlBot = "http://localhost:8080/deco_tienda/_bot.php";
     let notificacion = false;
     //anterior = 8146;
-    let contador = 12623;
+    let contador = 12626;
     //productos;
     let nombreProducto;
     let imagenProducto;
