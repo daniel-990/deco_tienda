@@ -1,11 +1,11 @@
 const init = () => {
 
     //datos url
-    let urlSitioTienda = "https://decohouse.com.co/decohouse-tienda/";
+    let urlSitioTienda = "https://decohouse.com.co";
 
     //datos url conexion
-    const url_ = "http://localhost:8080/deco_tienda/_notificacion.php";
-    const urlBot = "http://localhost:8080/deco_tienda/_bot.php";
+    const url_ = "https://decotiendabot.herokuapp.com/_notificacion.php";
+    const urlBot = "https://decotiendabot.herokuapp.com/_bot.php";
     let notificacion = false;
     //anterior = 8146;
     let contador = 12626;
@@ -35,7 +35,7 @@ const init = () => {
                     /**
                      * order status:
                      * pending
-                     * processing
+                     * processing -> epayco-processing
                      * on-hold -> epayco-on-hold
                      * completed
                      * cancelled
@@ -44,9 +44,9 @@ const init = () => {
                      * trash
                      * pending
                      */
-                    // console.log(items.id);
-                    // console.log(items.status);
-                    if(items.id > contador && items.status == "epayco-on-hold"){
+                    console.log(items.id);
+                    console.log(items.status);
+                    if(items.id > contador && items.status == "epayco-processing"){
                         const img = items.line_items;
                         //datos de la imagen
                         
@@ -55,7 +55,7 @@ const init = () => {
                             const element = img[i];
                             nombreProducto = element.name;
                             subTotalProducto = element.subtotal;
-                            imagenProducto = urlSitioTienda+"producto/?p="+element.product_id;
+                            imagenProducto = urlSitioTienda+"/producto/?p="+element.product_id;
 
                             multimedia.push(nombreProducto,subTotalProducto,imagenProducto);
                         }
